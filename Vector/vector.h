@@ -15,10 +15,15 @@ class Vector {
             capacity = 0;
             arrayPtr = new char[capacity];
         }
+        
         Vector(int capacity){
             size = 0;
             this->capacity = capacity;
             arrayPtr = new char[capacity];
+        }
+
+        ~Vector() {
+            delete[] arrayPtr;
         }
 
         int get_size(); // Number of items

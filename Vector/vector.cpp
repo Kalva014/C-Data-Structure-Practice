@@ -4,16 +4,18 @@
 
 void Vector::resize() {
     if(size == capacity) { // Double the size
-        char new_array[capacity * 2];
+        capacity *= 2;
+        char* new_array = new char[capacity];
 
         for(int i = 0; i < size; i++) {
                 new_array[i] = arrayPtr[i];
         }
 
-        arrayPtr = new_array; //assign to new array
+        arrayPtr = new_array; //assign to new array]
     }
     else if(size == ((1/4) * capacity)) {
-        char new_array[capacity / 2];
+        capacity /= 2;
+        char* new_array = new char[capacity];
 
         for(int i = 0; i < size; i++) {
             new_array[i] = arrayPtr[i];
@@ -33,9 +35,9 @@ int Vector::get_capacity() {
 
 bool Vector::is_empty() {
     if(size == 0) {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 char Vector::at(int index){
@@ -74,17 +76,17 @@ void Vector::prepend(char item) {
 }
 
 char Vector::pop() {
-    char temp = arrayPtr[size - 1];
+    char temp = arrayPtr[size];
     delete_item(0);
-    size -= 1;
+    --size;
     return temp;
 }
 
 void Vector::delete_item(int index) {
     for(int i = index; i < size - 1; i++) {
-        arrayPtr[i] = i + 1;
+        arrayPtr[i] = arrayPtr[i + 1];
     }
-    size -= 1;
+    --size;
 }
 
 void Vector::remove(char item){
@@ -98,7 +100,6 @@ void Vector::remove(char item){
 int Vector::find(char item) {
     for(int i = 0; i < size; i++) {
         if(arrayPtr[i] == item) {
-            std::cout << arrayPtr[i] << std::endl;
             return i;
         }
     }
