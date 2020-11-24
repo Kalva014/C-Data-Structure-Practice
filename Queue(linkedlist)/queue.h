@@ -15,6 +15,11 @@ class Queue {
             head = nullptr;
             tail = nullptr;
         }
+        ~Queue() {
+            delete head;
+            delete tail;
+        }
+        
         void enqueue(char value); // adds value at position at tail
         void dequeue();
         bool empty();
