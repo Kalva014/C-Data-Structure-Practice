@@ -16,7 +16,7 @@ class Queue {
             tail = nullptr;
         }
         void enqueue(char value); // adds value at position at tail
-        char dequeue(); // returns value and removes least recently added element (front)
+        void dequeue();
         bool empty();
         void print();
 };

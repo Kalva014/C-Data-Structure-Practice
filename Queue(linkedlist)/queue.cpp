@@ -17,14 +17,12 @@ void Queue::enqueue(char value) {
     tail = temp;
 }
 
-char Queue::dequeue() {
-    if(empty() == true) {
-        return 'L';
+void Queue::dequeue() {
+    if(empty() == false) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
     }
-
-    Node* temp = head;
-    head = head->next;
-    return head->data;
 }
 
 bool Queue::empty() {
