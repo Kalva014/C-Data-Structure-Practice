@@ -7,13 +7,13 @@ void Queue::enqueue(char value) { // adds item at end of available storage
         resize();
     }
 
-    arrayPtr[size + 1] = value;
+    arrayPtr[size] = value;
     ++size;
 } 
 
 void Queue::dequeue() { // removes least recently added element
     if(empty() == false) {
-        for(int i = 1; i < size; ++i) {
+        for(int i = 0; i < size; ++i) {
             arrayPtr[i] = arrayPtr[i+1];
         }
 

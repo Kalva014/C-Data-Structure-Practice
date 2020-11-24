@@ -1,5 +1,5 @@
 #include <iostream>
-#include "queue.h"
+#include "queue.cpp"
 
 int main() {
     Queue* queueThing = new Queue();

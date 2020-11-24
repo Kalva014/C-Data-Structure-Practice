@@ -9,12 +9,13 @@ void Queue::enqueue(char value) {
         head->next = nullptr;
         tail = head;
     }
-
-    Node* temp = new Node();
-    temp->data = value;
-    temp->next = nullptr;
-    tail->next = temp;
-    tail = temp;
+    else {
+        Node* temp = new Node();
+        temp->data = value;
+        temp->next = nullptr;
+        tail->next = temp;
+        tail = temp;
+    }
 }
 
 void Queue::dequeue() {
